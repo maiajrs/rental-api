@@ -8,21 +8,17 @@ import { UpdateUserAvatarController } from "../modules/accounts/useCases/updateU
 
 const usersRoutes = Router();
 
-try {
-  const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
+const uploadAvatar = multer(uploadConfig.upload("./tmp/avatar"));
 
-  const createUserController = new CreateUserController();
-  const updateUserAvatarController = new UpdateUserAvatarController();
+const createUserController = new CreateUserController();
+const updateUserAvatarController = new UpdateUserAvatarController();
 
-  usersRoutes.post("/", createUserController.handle);
-  usersRoutes.patch(
-    "/avatar",
-    ensureAuthenticated,
-    uploadAvatar.single("avatar"),
-    updateUserAvatarController.handle
-  );
-} catch (error) {
-  console.log(`O erro está aqui: ${error.messase}`);
-}
+usersRoutes.post("/", createUserController.handle);
+usersRoutes.patch(
+  "/avatar",
+  ensureAuthenticated,
+  uploadAvatar.single("avatar"),
+  updateUserAvatarController.handle
+);
 
 export { usersRoutes };

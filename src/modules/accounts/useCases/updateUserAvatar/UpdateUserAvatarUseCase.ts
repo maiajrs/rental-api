@@ -1,5 +1,6 @@
 import { inject, injectable } from "tsyringe";
 
+import { deleteFile } from "../../../../utils/file";
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/IUserRepository";
 
@@ -18,6 +19,10 @@ class UpdateUserAvatarUseCase {
     const user = await this.usersRepository.findById(user_id);
 
     user.avatar = avatar_file;
+
+    if (user.avatar) {
+      await deleteFile(`./tmp/avatar/${avatar_file}`);
+    }
 
     await this.usersRepository.create(user);
   }
