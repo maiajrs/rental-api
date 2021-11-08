@@ -18,6 +18,7 @@ class ImportCategoryUseCase {
 
   async loadCategories(file: Express.Multer.File): Promise<IInportCategory[]> {
     return new Promise((resolve, reject) => {
+      console.log(file.fieldname);
       const stream = fs.createReadStream(file.path);
 
       const categories: IInportCategory[] = [];
