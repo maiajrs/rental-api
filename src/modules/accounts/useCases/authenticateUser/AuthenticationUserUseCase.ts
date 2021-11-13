@@ -2,7 +2,7 @@ import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { inject, injectable } from "tsyringe";
 
-import { AppErrors } from "@errors/AppErrors";
+import { AppErrors } from "@shared/errors/AppErrors";
 import { IUsersRepository } from "@modules/accounts/repositories/IUserRepository";
 
 interface IRequest {
