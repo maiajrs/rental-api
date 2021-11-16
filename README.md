@@ -11,8 +11,8 @@ it should be able to register a car
 it should be able to list all categories
 
 **RN**
-it should no be able to register a car with a already existing license plate
-it should no be able to change a license plate of a already registered car
+it should not be able to register a car with a already existing license plate
+it should not be able to change a license plate of a already registered car
 car should be registed as available for default 
 only a admin should be able to register a car
 
